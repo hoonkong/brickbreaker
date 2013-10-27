@@ -17,7 +17,7 @@ var game = function ()
                 objects[i].draw();
                 objects[i].update();
             }
-        }, 60);
+        }, 20);
     }
     
     this.addObject = addObject;

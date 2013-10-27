@@ -1,0 +1,4 @@
+var ball = function (ctx)
+{
+    
+}

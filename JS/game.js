@@ -9,7 +9,16 @@ var game = function ()
     
     var start = function (c, ctx)
     {
-        setInterval(function ()
+        ctx.clearRect(0, 0, c.width, c.height);
+        for (var i = 0; i < objects.length; i++)
+        {
+            objects[i].draw();
+            objects[i].update();
+        }
+        
+        window.requestAnimationFrame(function () { start (c, ctx); });
+        
+        /*setInterval(function ()
         {
             ctx.clearRect(0, 0, c.width, c.height);
             for (var i = 0; i < objects.length; i++)
@@ -17,7 +26,7 @@ var game = function ()
                 objects[i].draw();
                 objects[i].update();
             }
-        }, 60);
+        }, 20);*/
     }
     
     this.addObject = addObject;

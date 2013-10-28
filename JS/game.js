@@ -12,8 +12,19 @@ var game = function ()
         ctx.clearRect(0, 0, c.width, c.height);
         for (var i = 0; i < objects.length; i++)
         {
+            var collidedObject = null;
+            
             objects[i].draw();
-            objects[i].update();
+            
+            if (objects[i].canCauseCollision)
+            {
+                for (var j = 0; j < objects.length; j++)
+                {
+                    collidedObject = objects[i].collidedWith(objects[j]) && objects[j];
+                }
+            }
+            
+            objects[i].update(collidedObject);
         }
         
         window.requestAnimationFrame(function () { start (c, ctx); });

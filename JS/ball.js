@@ -16,12 +16,14 @@ var ball = function (c, ctx)
     
     var update = function ()
     {
-        if (x + r >= c.width || x - r <= 0)
+        var bounds = getBounds();
+        
+        if (bounds.x1 >= c.width || bounds.x <= 0)
         {
             stepX = stepX * -1;
         }
         
-        if (y + r >= c.height || y - r <= 0)
+        if (bounds.y1 >= c.height || bounds.y <= 0)
         {
             stepY = stepY * -1;
         }
@@ -30,6 +32,19 @@ var ball = function (c, ctx)
         y = y + stepY;
     }
     
+    var collidedWith = function (obj)
+    {
+        var bounds = obj.getBounds();
+    }
+    
+    var getBounds = function ()
+    {
+        return { x: x - r, y: y - r, x1: x + r, y1: y + r };
+    }
+    
     this.draw = draw;
     this.update = update;
+    this.collidedWith = collidedWith;
+    this.getBounds = getBounds;
+    this.canCauseCollision = true;
 }

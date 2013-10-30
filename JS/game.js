@@ -37,11 +37,7 @@ var game = function ()
                 objects[i].draw();
                 objects[i].update();
             }
-<<<<<<< HEAD
         }, 20);*/
-=======
-        }, 20);
->>>>>>> e6b47ba7b7a4a0908dffd70ffc1e81ffebc2e82c
     }
     
     this.addObject = addObject;
